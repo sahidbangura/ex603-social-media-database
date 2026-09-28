@@ -18,12 +18,28 @@ The design also prevents invalid states such as orphaned posts or likes, negativ
 
 ![Social Media ERD](schema/erd.png)
 
-## Unit 1 Files
+## Schema
+
+The implemented PostgreSQL schema contains five tables:
+
+- `users` — platform users
+- `posts` — posts created by users
+- `likes` — user interactions with posts
+- `hashtags` — reusable hashtag definitions
+- `post_hashtags` — junction table connecting posts and hashtags
+
+The schema enforces referential integrity with foreign keys and `ON DELETE CASCADE` where child records should not survive their parent records.
+
+Non-negative `view_count` and `dwell_ms` values are enforced with CHECK constraints. The `post_hashtags` junction table uses a composite primary key to prevent duplicate post-hashtag relationships.
+
+## Project Files
 
 - `schema/erd.png` — exported ERD image
 - `schema/erd.dbml` — editable dbdiagram.io source
 - `schema/schema-definition.md` — relation schemas, attributes, domains, and primary keys
 - `schema/constraints.md` — integrity constraints and ON DELETE decisions
-- `analysis/unit1.md` — modelling justification and reflection
+- `schema/schema.sql` — complete PostgreSQL DDL for Assignment 2
+- `analysis/unit1.md` — Unit 1 analysis
+- `analysis/unit2.md` — Assignment 2 constraint reasoning and CHECK narrative
 - `queries/` — reserved for later units
-- `screenshots/` — reserved for later units
+- `screenshots/` — assignment execution evidence
