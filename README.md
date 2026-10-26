@@ -43,3 +43,25 @@ Non-negative `view_count` and `dwell_ms` values are enforced with CHECK constrai
 - `analysis/unit2.md` — Assignment 2 constraint reasoning and CHECK narrative
 - `queries/` — reserved for later units
 - `screenshots/` — assignment execution evidence
+
+## Unit 4 — From Rows to Insight
+
+**Dataset:** Instructor-provided 2023 Social Media reactions imported into separate PostgreSQL database `ex603_data` (200 reactions).
+
+### Query catalogue
+
+| File | Business questions |
+|---|---|
+| `queries/unit4/q4_1.sql` | Platform-wide dwell-time summary and unique reacting users; per-post volume and mean dwell; HAVING volume screen; performance by post and client country. |
+| `queries/unit4/q4_2.sql` | Total vs. spam-removed reactions per post; ROLLUP regional subtotals and platform grand total; high-volume baseline computed via CTEs. |
+| `analysis/unit4.md` | Methodology, interpretations, limitations, and 150–250-word reflection. |
+| `analysis/unit4-finding.md` | Leadership summary, verified failure rate, and producer IDs for investigation. |
+| `screenshots/` | PgAdmin query and result evidence (seven Unit 4 captures to be added). |
+
+**Failure definition:** `reaction_status = 'removed'` AND `removal_reason = 'Spam detected'`. Of 200 reactions, 12 are spam removals (6.00%). The high-volume baseline is 11/194 (5.67%). The data is historical educational sample data, not a current-quarter payout report.
+
+### Run locally
+
+Create `ex603_data`, load the instructor-provided `social.sql` using the pgAdmin Query Tool connected to that database, then execute the queries in `queries/unit4/`. **Do not load this DROP/CREATE script into the separate Unit 2 database.**
+
+**Evidence limitation:** Some original pgAdmin screenshots show only the end of the statement, so retake the captures with the full SQL and output legible in the same uncropped image before final submission.

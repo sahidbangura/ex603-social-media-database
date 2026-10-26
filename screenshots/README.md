@@ -1,3 +1,1 @@
-# Screenshots
-
-This folder contains execution evidence and screenshots associated with project assignments.
+Seven original pgAdmin screenshots from Unit 4 are present. They were supplied directly by the student and have not been cropped, modified, or composited. Caveat: most screenshots show only the final lines of a lengthy SQL statement. The rubric requires legible query AND output together, so retake those with SQL zoomed out or the editor pane increased. Multi-row results also show only the first visible rows for several queries.
