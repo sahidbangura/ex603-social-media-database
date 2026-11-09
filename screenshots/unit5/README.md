@@ -38,3 +38,9 @@ Use the queries stored in `queries/unit5/q5_1.sql`, `q5_2.sql`, and `q5_3.sql`. 
 - EXPLAIN: Hash Join, Nested Loop, Seq Scan, Memoize, `posts_pkey` Index Scan and Sort, 13 lines
 
 **Still to verify with new executions:** direct INNER JOIN report, exact LEFT/RIGHT row-set equality check, orphan check, standalone NOT EXISTS/EXCEPT, theme-wide 'tech' tag query, CROSS JOIN sample. Capture the full EXPLAIN plan on one screen.
+
+## Screenshot audit (November 9, 2026)
+
+Fifteen original pgAdmin captures were reviewed. The complete orphan-check capture showed zero orphaned reactions and is suitable for submission. Fourteen other captures show only part of the SQL statement or execution plan and need replacement for the professor's uncropped full-query-and-result requirement. The original capture files have been packaged separately for manual GitHub upload; **they have not yet been uploaded into this GitHub directory**. Do not confuse this README checklist with actual screenshot files.
+
+The LEFT-vs-RIGHT and RIGHT-vs-LEFT EXCEPT checks both returned zero differences. The orphaned reaction check returned zero.
