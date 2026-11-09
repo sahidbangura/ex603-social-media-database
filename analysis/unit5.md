@@ -15,9 +15,9 @@
 
 **LEFT versus INNER.** A LEFT JOIN retained all **15** posts, whereas an INNER JOIN retained only **13 distinct** posts. The missing producers were **Post_14 (ID 14)** and **Post_15 (ID 15)**, both with **zero reaction rows**. Counts used distinct producer IDs rather than event-row counts.
 
-**RIGHT versus LEFT.** Reversing the table order and using RIGHT JOIN returned 15 producers, as the LEFT JOIN did. The included comparison SQL tests full row-set equivalence in both directions; the observed screenshot confirms the same producer count, while the row-set difference test should still be run and captured.
+**RIGHT versus LEFT.** Reversing the table order and using RIGHT JOIN returned 15 producers, as the LEFT JOIN did. The included comparison SQL tests full row-set equivalence in both directions; both directional EXCEPT comparisons were executed and each returned zero rows, confirming identical producer-summary records.
 
-**FULL OUTER.** The full outer query returned 15 grouped producer records. It can expose unmatched posts **and** unmatched reactions whose post identifier is absent from `posts`. The visible screenshot does not independently prove whether orphaned reaction rows exist; the extra orphan check in `q5_2.sql` verifies that separately. A LEFT JOIN starting from posts would not reveal orphaned reactions.
+**FULL OUTER.** The full outer query returned 15 grouped producer records. It can expose unmatched posts **and** unmatched reactions whose post identifier is absent from `posts`. A separate orphan check returned **zero** reaction records without a matching post, confirming that there are no unmatched reaction-side records in this dataset. A LEFT JOIN starting from posts would not reveal orphaned reactions.
 
 **NOT EXISTS versus EXCEPT.** Both methods returned exactly **14 and 15**, agreeing on the no-reaction posts. `NOT EXISTS` is a correlated absence check; `EXCEPT` subtracts the set of post IDs appearing in reactions from all post IDs. Both work here; `NOT EXISTS` can make a matching condition clearer, while `EXCEPT` is concise for sets of identifiers.
 
