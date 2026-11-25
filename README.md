@@ -31,7 +31,7 @@ The Unit 2 design and integrity decisions are in [schema/schema.sql](schema/sche
 | 6 | [q6_2.sql](queries/unit6/q6_2.sql) | How do events change sequentially, accumulate, smooth, and reveal gaps? |
 | 6 | [q6_3.sql](queries/unit6/q6_3.sql) | What are the top three reactions per producer and monthly spam-removal trends? |
 
-Interpretations: [Unit 4 analysis](analysis/unit4.md) · [Unit 5 analysis](analysis/unit5.md) · [Unit 6 analysis (pending execution)](analysis/unit6.md). Leadership memos: [Unit 4](analysis/unit4-finding.md), [Unit 5](analysis/unit5-finding.md), [Unit 6 (draft)](analysis/unit6-finding.md).
+Interpretations: [Unit 4 analysis](analysis/unit4.md) · [Unit 5 analysis](analysis/unit5.md) · [Unit 6 analysis](analysis/unit6.md). Leadership memos: [Unit 4](analysis/unit4-finding.md), [Unit 5](analysis/unit5-finding.md), [Unit 6](analysis/unit6-finding.md).
 
 ## Technical highlights
 
@@ -45,11 +45,11 @@ Interpretations: [Unit 4 analysis](analysis/unit4.md) · [Unit 5 analysis](analy
 
 - **Historical sample quality:** Of 200 reactions, 12 were removed specifically for spam (6.00%). Posts 2 and 3 had elevated rates of 3/16 (18.75%) and 2/13 (15.38%). Review moderation details and denominators rather than treating these small samples as proof of wrongdoing.
 - **Engagement completeness:** Posts 14 and 15 recorded zero reactions. Use an all-post LEFT JOIN report to keep such producers visible, then investigate exposure, visibility and instrumentation before drawing conclusions.
-- **Temporal trend:** **Pending Unit 6 execution.** The aggregate failure rate above does not establish whether the problem improved or worsened month by month.
+- **Temporal trend:** The executed monthly query found all 12 months of 2023, no missing months, and fluctuating rates. January had 2/21 spam removals (9.52%) versus December 2/16 (12.50%); Q1 overall was 4/53 (7.55%) versus Q4 2/48 (4.17%). This is not clear evidence of sustained improvement.
 
 ## Limitations and future improvements
 
-This is a historical educational dataset, not current platform telemetry. Small per-post counts, missing reaction dates, changing moderation definitions and the absence of exposure denominators limit causal and operational conclusions. Future work should validate the ingestion pipeline, add views/impressions, run longitudinal cohort analyses, and compare periods on consistent definitions. Unit 6 SQL and written materials are currently prepared for local execution and verification; don't treat unrun queries as validated findings.
+This is a historical educational dataset, not current platform telemetry. Small per-post counts, missing reaction dates, changing moderation definitions and the absence of exposure denominators limit causal and operational conclusions. Future work should validate the ingestion pipeline, add views/impressions, run longitudinal cohort analyses, and compare periods on consistent definitions. Core Unit 6 queries have been executed in pgAdmin and their visible results incorporated into the analysis. Supplemental audit queries and full screenshot evidence still need final verification/upload.
 
 ## Video presentation
 
